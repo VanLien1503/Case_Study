@@ -39,4 +39,34 @@ function Figure(name, vitality, energy, damage, defense, avoid, exactly, x, y) {
             return true;
         }
     };
+    //phương thức: tấn công
+    this.attack = function (nhanvat) {
+        this.moveTo(nhanvat);
+        if (this.daeth(nhanvat)) {
+            alert("Game Over");
+        } else {
+            if (this.energy === 2) {
+                if (!this.checkAvoid(nhanvat)) {
+                    nhanvat.vitality -= (this.damge * this.damge) / nhanvat.defense;
+                    this.energy = 0;
+                    console.log("đánh Kill Mất " + (this.damge * this.damge) / nhanvat.defense + " sức Sống")
+                } else {
+                    console.log("Đánh Kill Miss");
+                }
+                this.viTriFirst(x, y);
+                console.log("Quay về Vị trí ban đầu " + this.viTriFirst(x, y))
+            } else {
+                if (!this.checkAvoid(nhanvat)) {
+                    nhanvat.vitality -= this.damge / nhanvat.defense;
+                    this.energy++;
+                    console.log("đánh Thường Mất " + (this.damge) / nhanvat.defense + " sức Sống");
+                } else {
+                    console.log("Đánh thường Miss");
+                }
+                this.viTriFirst(x, y);
+                console.log("Quay về Vị trí ban đầu " + this.viTriFirst(x, y))
+            }
+        }
+    };
+    
 }
