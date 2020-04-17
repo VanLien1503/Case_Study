@@ -68,5 +68,20 @@ function Figure(name, vitality, energy, damage, defense, avoid, exactly, x, y) {
             }
         }
     };
-    
+}
+let nhanvatA = new Figure(
+    "alibaba", 10, 0, 5, 2, 7, 2, 30, 40);
+let nhanvatB = new Figure(
+    "Aladin", 10, 0, 5, 6, 7, 3, 50, 70);
+
+function AattackB() {
+    nhanvatA.attack(nhanvatB);
+    console.log(nhanvatA);
+    console.log(nhanvatB);
+}
+
+function BattackA() {
+    nhanvatB.attack(nhanvatA);
+    console.log(nhanvatA);
+    console.log(nhanvatB)
 }
