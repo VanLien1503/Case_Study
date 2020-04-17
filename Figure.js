@@ -25,5 +25,18 @@ function Figure(name, vitality, energy, damage, defense, avoid, exactly, x, y) {
             alert(nhanvat.name + " The daeth...!");
             return true;
         }
-    }
+    };
+    //tạo phương thức né tránh:
+    this.checkAvoid = function (nhanvat) {
+        let arrAvoid = [];
+        let number = Math.floor(Math.random() * 10 + nhanvat.exactly) + 1;
+        for (let i = 1; i < this.avoid; i++) {
+            arrAvoid.push(i);
+        }
+        if (arrAvoid.indexOf(number) === -1) {
+            return false;
+        } else {
+            return true;
+        }
+    };
 }
